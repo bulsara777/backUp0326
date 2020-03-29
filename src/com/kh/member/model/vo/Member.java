@@ -122,14 +122,7 @@ public class Member {
 		this.id = id;
 	}
 	
-	/**
-	 * 아이디 찾기용
-	 * @param id
-	 */
-	public Member(String id) {
-		super();
-		this.id = id;
-	}
+	
 	
 
 	public int getMemberNo() {

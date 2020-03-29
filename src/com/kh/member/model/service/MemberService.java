@@ -111,12 +111,10 @@ public class MemberService {
 	}
 	
 	public Member findId(String name, String email) {
-		
 		Connection conn = getConnection();
 		
 		Member findIdMem = new MemberDao().findId(conn, name, email);
-
-
+		
 		close(conn);
 		
 		return findIdMem;
@@ -124,7 +122,7 @@ public class MemberService {
 		
 		}
 	
-	
+
 	public Member findPwd(String pId, String pName, String pPhone) {
 		
 		Connection conn = getConnection();

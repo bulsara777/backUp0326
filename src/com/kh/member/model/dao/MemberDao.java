@@ -69,9 +69,7 @@ public class MemberDao {
 			/* JDBCTemplate. */close(rset);
 			/* JDBCTemplate. */close(pstmt);
 		}
-	
 		return loginUser;
-		
 	}
 	
 	
@@ -233,9 +231,8 @@ public class MemberDao {
 		return result;
 		
 	}
-	
+
 	public Member findId(Connection conn, String name, String email) {
-		
 		
 		Member findIdMem = null;
 		
@@ -253,7 +250,9 @@ public class MemberDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				findIdMem = new Member(rset.getString("id"));
+				Member m = new Member();
+				m.setId(rset.getString("id"));
+				findIdMem = m;
 			}
 			
 			
@@ -289,7 +288,9 @@ public class MemberDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				findPwdMem = new Member(rset.getString("pwd"));
+				Member m = new Member();
+				m.setPwd(rset.getString("pwd"));
+				findPwdMem = m;
 			}
 			
 			
@@ -335,7 +336,5 @@ public class MemberDao {
 		
 	}
 	
+	
 }
-
-
-
