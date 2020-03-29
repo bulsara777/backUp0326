@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/deleteForm.me")
 public class MemberDeleteFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -28,10 +28,10 @@ public class MemberDeleteFormServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		RequestDispatcher view = request.getRequestDispatcher("views/member/memberDelete.jsp");
 		view.forward(request, response);
-
+		
 	}
 
 	/**

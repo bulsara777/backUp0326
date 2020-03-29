@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/loginForm.me")
 public class LoginFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -31,9 +31,9 @@ public class LoginFormServlet extends HttpServlet {
 
 		RequestDispatcher view = request.getRequestDispatcher("views/member/loginPage.jsp");
 		view.forward(request, response);
-
-
-
+		
+		
+		
 	}
 
 	/**

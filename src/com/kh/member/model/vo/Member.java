@@ -90,6 +90,7 @@ public class Member {
 	 * @param id
 	 * @param pwd
 	 * @param name
+	 * @param birth
 	 * @param email
 	 * @param phone
 	 * @param tel
@@ -120,6 +121,16 @@ public class Member {
 		this.tel = tel;
 		this.id = id;
 	}
+	
+	/**
+	 * 아이디 찾기용
+	 * @param id
+	 */
+	public Member(String id) {
+		super();
+		this.id = id;
+	}
+	
 
 	public int getMemberNo() {
 		return memberNo;
@@ -209,7 +220,7 @@ public class Member {
 		this.ticketCount = ticketCount;
 	}
 
-	public Object getSignupDate() {
+	public Date getSignupDate() {
 		return signupDate;
 	}
 

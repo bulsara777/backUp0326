@@ -3,6 +3,7 @@ package com.kh.member.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,7 +35,7 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
 		String userId = request.getParameter("userId");
 		String userPwd = request.getParameter("userPwd");
 
@@ -45,18 +46,19 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", loginUser);
 
-			response.sendRedirect(request.getContextPath());
-
+			RequestDispatcher view = request.getRequestDispatcher("views/member/myPage.jsp");
+			view.forward(request, response);
+			
 		} else {
 
-			String message = "¾ÆÀÌµğ ¶Ç´Â ºñ¹Ğ¹øÈ£¸¦ ´Ù½Ã È®ÀÎÇØ ÁÖ¼¼¿ä.";
+			String message = "ì•„ì´ë”” ë˜ëŠ” ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. ë‹¤ì‹œ í™•ì¸í•´ ì£¼ì„¸ìš”.";
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('" + message + "');");
 			out.println("history.back(-1);");
 			out.println("</script>");
-
+			 
 
 		}
 

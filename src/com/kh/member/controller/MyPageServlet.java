@@ -19,7 +19,7 @@ import com.kh.member.model.vo.Member;
 @WebServlet("/mypage.me")
 public class MyPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -35,29 +35,29 @@ public class MyPageServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		Member loginUser = (Member)session.getAttribute("loginUser");
-
+			
 		String userId = loginUser.getId();
-
+		
 		Member mem = new MemberService().selectMember(userId);
-
-
-		if(mem != null) { // Á¶È¸ µÇ¾úÀ» °æ¿ì --> ¸¶ÀÌÆäÀÌÁö
-
+		
+		
+		if(mem != null) { 
+			
 			request.setAttribute("mem", mem);
-
+			
 			RequestDispatcher view = request.getRequestDispatcher("views/member/myPage.jsp");
 			view.forward(request, response);	
+			
+		}else {
 
-		}else { // Á¶È¸ ¾ÈµÇ¾úÀ» °æ¿ì
-
-
-			request.setAttribute("msg", "Á¶È¸¿¡ ½ÇÆĞÇß½À´Ï´Ù.");
-
+			
+			request.setAttribute("msg", "ì¡°íšŒì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.");
+			
 			RequestDispatcher view = request.getRequestDispatcher("views/common/error.jsp");
 			view.forward(request, response);
-
+			
 		}
-
+		
 
 	}
 

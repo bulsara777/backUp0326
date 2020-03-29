@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/pickMovie.do")
 public class MyPagePickMovieServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -28,7 +28,7 @@ public class MyPagePickMovieServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+	
 		RequestDispatcher view = request.getRequestDispatcher("views/member/pickMovie.jsp");
 		view.forward(request, response);
 	}

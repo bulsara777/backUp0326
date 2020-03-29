@@ -34,8 +34,7 @@ public class MemberInsertServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		 request.setCharacterEncoding("utf-8");
-		 
-		
+		  
 		 String id = request.getParameter("id"); 
 		 String pwd = request.getParameter("pwd"); 
 		 String name = request.getParameter("name");
@@ -50,21 +49,23 @@ public class MemberInsertServlet extends HttpServlet {
 		 int result = new MemberService().insertMember(mem, birth);
 		  
 		 if(result > 0) {
-
+		 
 		 HttpSession session = request.getSession(); 
+		 
 		 session.setAttribute("msg", "회원 가입 성공!");
 		  
 		 response.sendRedirect(request.getContextPath());
 		 
-		 
+
 		  
 		 }else {
 		  
 		 request.setAttribute("msg", "회원가입 실패!");
 		  
-		 RequestDispatcher view = request.getRequestDispatcher("views/common/error.jsp");
+		 RequestDispatcher view = request.getRequestDispatcher("views/member/memberEnrollForm.jsp");
 		 view.forward(request, response);
 		 
+	
 		 }
 		 
 		
